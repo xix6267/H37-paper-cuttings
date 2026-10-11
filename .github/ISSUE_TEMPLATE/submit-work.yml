@@ -1,0 +1,60 @@
+name: 提交我的剪纸作品
+description: 通过这个表单提交你的剪纸作品和感受，老师审核后会上线到网站
+title: "作品提交："
+labels: ["作品提交"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 你的名字
+      description: 想让大家看到的名字，昵称、小名都可以
+      placeholder: 例如：小王、张阿姨、明明...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lesson
+    attributes:
+      label: 哪一节课的作品
+      description: 选择你的作品属于哪节课
+      options:
+        - 第一课：对称之美
+        - 第二课：团花绽放
+    validations:
+      required: true
+
+  - type: textarea
+    id: thoughts
+    attributes:
+      label: 你的感受
+      description: 剪这件作品时的心情、遇到的困难，或者想说的话
+      placeholder: 写写你剪这件作品时的感受吧...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 上传作品照片
+        请在下方上传一张清晰的作品正面照片（手机拍就行，注意光线充足）。
+
+  - type: textarea
+    id: photo-note
+    attributes:
+      label: 照片说明
+      description: |
+        请上传你的作品照片（直接拖拽图片到下方文本框即可）。
+        要求：一张清晰的正面照片，光线充足，手机拍摄即可。
+      placeholder: （请将照片拖拽或粘贴到此处）
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 这是我自己的作品，照片是我自己拍摄的
+          required: true
+        - label: 我同意作品照片和感受展示在剪纸小家网站上
+          required: true
