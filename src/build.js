@@ -84,6 +84,7 @@ function shell(title, content, extraHead = '', prefix = '') {
       </a>
       <nav>
         <a href="${prefix}index.html" class="nav-link">首页</a>
+        <a href="${prefix}submit.html" class="nav-link">提交作品</a>
         <a href="${prefix}about.html" class="nav-link">关于</a>
       </nav>
     </div>
@@ -199,7 +200,7 @@ function buildCoursePage(course, courses) {
           ? `<div class="work-grid">${works}</div>`
           : `<p class="empty-hint">还没有学员作品，快来提交你的第一件作品吧！</p>`}
         <div class="submit-cta">
-          <a href="https://github.com/xixi6267/jianzhi-xiaojia/issues/new?template=submit-work.yml" class="btn-submit" target="_blank">提交我的作品</a>
+          <a href="../submit.html" class="btn-submit">提交我的作品</a>
         </div>
       </section>
       ${otherCourses ? `<section class="other-section"><h2 class="section-title">其他课程</h2><div class="other-links">${otherCourses}</div></section>` : ''}
@@ -281,7 +282,7 @@ function buildAbout() {
           <div class="tech-row"><span class="tech-label">托管</span><span>GitHub Pages（免费、免备案）</span></div>
           <div class="tech-row"><span class="tech-label">费用</span><span><strong>0 元</strong></span></div>
           <div class="tech-row"><span class="tech-label">更新方式</span><span>提交内容文件后自动重建上线</span></div>
-          <div class="tech-row"><span class="tech-label">提交入口</span><span>GitHub Issue 表单（自带审核流程）</span></div>
+          <div class="tech-row"><span class="tech-label">提交入口</span><span>网站在线表单（直接提交，无需注册）</span></div>
         </div>
         <p>网站本身只是一堆文件，没有服务器、没有数据库、没有按量计费服务，因此不存在"用超了要收费"或"不活动被暂停"的问题。</p>
       </section>
@@ -310,6 +311,97 @@ function buildAbout() {
   return shell('关于我们', content);
 }
 
+function buildSubmit(courses) {
+  const courseOptions = courses.map(c =>
+    `<option value="${escapeHtml(c.title)}">${escapeHtml(c.title)}</option>`
+  ).join('\n');
+
+  const content = `
+    <div class="submit-hero">
+      <div class="container">
+        <h1>提交我的作品</h1>
+        <p class="submit-sub">填写下面的表单，分享你的剪纸作品和感受</p>
+      </div>
+    </div>
+    <div class="container submit-body">
+      <form class="submit-form" id="submitForm"
+        action="https://api.web3forms.com/submit"
+        method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="新作品提交 - 剪纸小家">
+        <input type="hidden" name="from_name" value="剪纸小家网站">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="form-group">
+          <label for="name">你的名字 <span class="req">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="昵称、小名都可以">
+        </div>
+
+        <div class="form-group">
+          <label for="course">哪一节课 <span class="req">*</span></label>
+          <select id="course" name="course" required>
+            <option value="" disabled selected>请选择课程</option>
+            ${courseOptions}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="thought">你的感受 <span class="req">*</span></label>
+          <textarea id="thought" name="thought" rows="5" required
+            placeholder="剪这件作品时的心情、遇到的困难，或者想说的话..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">作品照片</label>
+          <input type="file" id="photo" name="attachment" accept="image/*">
+          <p class="form-hint">上传一张清晰的作品照片（手机拍照即可）</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">联系方式（选填）</label>
+          <input type="text" id="contact" name="contact" placeholder="手机号或微信号，方便老师联系你">
+        </div>
+
+        <button type="submit" class="btn-submit btn-form">提交作品</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" style="display:none">
+        <div class="success-icon">✓</div>
+        <h2>提交成功！</h2>
+        <p>感谢你的分享，老师收到后会审核并上线你的作品。</p>
+        <a href="index.html" class="btn-submit">返回首页</a>
+      </div>
+    </div>
+
+    <script>
+document.getElementById('submitForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('.btn-form');
+  btn.textContent = '提交中...';
+  btn.disabled = true;
+  try {
+    var data = new FormData(form);
+    var res = await fetch(form.action, { method: 'POST', body: data });
+    var result = await res.json();
+    if (result.success) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      alert('提交失败，请稍后再试或联系老师。');
+      btn.textContent = '提交作品';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    alert('网络错误，请检查网络后再试。');
+    btn.textContent = '提交作品';
+    btn.disabled = false;
+  }
+});
+    </script>`;
+  return shell('提交作品', content);
+}
+
 async function main() {
   console.log('Building 剪纸小家...');
   clean();
@@ -324,6 +416,7 @@ async function main() {
     fs.writeFileSync(path.join(outDir, 'index.html'), buildCoursePage(course, courses));
   }
   fs.writeFileSync(path.join(DIST, 'about.html'), buildAbout());
+  fs.writeFileSync(path.join(DIST, 'submit.html'), buildSubmit(courses));
   console.log('Build complete! Output in dist/');
 }
 
