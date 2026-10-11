@@ -325,21 +325,21 @@ function buildSubmit(courses) {
     </div>
     <div class="container submit-body">
       <form class="submit-form" id="submitForm"
-        action="https://api.web3forms.com/submit"
-        method="POST">
-        <input type="hidden" name="access_key" value="f49b2066-1d27-4619-a1a8-dafabbcfb891">
-        <input type="hidden" name="subject" value="新作品提交 - 剪纸小家">
-        <input type="hidden" name="from_name" value="剪纸小家网站">
-        <input type="hidden" name="redirect" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
+        action="https://formsubmit.co/2187416071@qq.com"
+        method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="新作品提交 - 剪纸小家">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
 
         <div class="form-group">
           <label for="name">你的名字 <span class="req">*</span></label>
-          <input type="text" id="name" name="name" required placeholder="昵称、小名都可以">
+          <input type="text" id="name" name="姓名" required placeholder="昵称、小名都可以">
         </div>
 
         <div class="form-group">
           <label for="course">哪一节课 <span class="req">*</span></label>
-          <select id="course" name="course" required>
+          <select id="course" name="课程" required>
             <option value="" disabled selected>请选择课程</option>
             ${courseOptions}
           </select>
@@ -347,19 +347,19 @@ function buildSubmit(courses) {
 
         <div class="form-group">
           <label for="thought">你的感受 <span class="req">*</span></label>
-          <textarea id="thought" name="thought" rows="5" required
+          <textarea id="thought" name="感受" rows="5" required
             placeholder="剪这件作品时的心情、遇到的困难，或者想说的话..."></textarea>
         </div>
 
         <div class="form-group">
           <label for="photo">作品照片（选填）</label>
-          <input type="text" id="photo" name="photo_url" placeholder="把照片发到微信群后，长按图片复制链接粘贴到这里">
-          <p class="form-hint">也可以不填，直接把照片发给老师</p>
+          <input type="file" id="photo" name="attachment" accept="image/*">
+          <p class="form-hint">从手机相册选择一张作品照片即可</p>
         </div>
 
         <div class="form-group">
           <label for="contact">联系方式（选填）</label>
-          <input type="text" id="contact" name="contact" placeholder="手机号或微信号，方便老师联系你">
+          <input type="text" id="contact" name="联系方式" placeholder="手机号或微信号，方便老师联系你">
         </div>
 
         <button type="submit" class="btn-submit btn-form">提交作品</button>
@@ -389,13 +389,13 @@ function buildSubmit(courses) {
     btn.disabled = true;
     try {
       var data = new FormData(form);
-      var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      var res = await fetch('https://formsubmit.co/ajax/2187416071@qq.com', { method: 'POST', body: data });
       var result = await res.json();
       if (result.success) {
         form.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
       } else {
-        alert('提交失败：' + (result.message || '未知错误') + '\\n请稍后再试或联系老师。');
+        alert('提交失败：' + (result.message || '未知错误') + '\n请稍后再试或联系老师。');
         btn.textContent = origText;
         btn.disabled = false;
       }
