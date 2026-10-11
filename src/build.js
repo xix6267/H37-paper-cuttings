@@ -330,7 +330,7 @@ function buildSubmit(courses) {
         <input type="hidden" name="access_key" value="f49b2066-1d27-4619-a1a8-dafabbcfb891">
         <input type="hidden" name="subject" value="新作品提交 - 剪纸小家">
         <input type="hidden" name="from_name" value="剪纸小家网站">
-        <input type="checkbox" name="botcheck" style="display:none">
+        <input type="hidden" name="redirect" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
 
         <div class="form-group">
           <label for="name">你的名字 <span class="req">*</span></label>
@@ -374,30 +374,36 @@ function buildSubmit(courses) {
     </div>
 
     <script>
-document.getElementById('submitForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  var form = this;
-  var btn = form.querySelector('.btn-form');
-  btn.textContent = '提交中...';
-  btn.disabled = true;
-  try {
-    var data = new FormData(form);
-    var res = await fetch(form.action, { method: 'POST', body: data });
-    var result = await res.json();
-    if (result.success) {
-      form.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    } else {
-      alert('提交失败，请稍后再试或联系老师。');
-      btn.textContent = '提交作品';
-      btn.disabled = false;
-    }
-  } catch(err) {
-    alert('网络错误，请检查网络后再试。');
-    btn.textContent = '提交作品';
-    btn.disabled = false;
+(function(){
+  if (location.search.indexOf('success=1') > -1) {
+    document.getElementById('submitForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    history.replaceState(null, '', 'submit.html');
   }
-});
+  document.getElementById('submitForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var form = this;
+    var btn = form.querySelector('.btn-form');
+    var origText = btn.textContent;
+    btn.textContent = '提交中...';
+    btn.disabled = true;
+    try {
+      var data = new FormData(form);
+      var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      var result = await res.json();
+      if (result.success) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('提交失败：' + (result.message || '未知错误') + '\\n请稍后再试或联系老师。');
+        btn.textContent = origText;
+        btn.disabled = false;
+      }
+    } catch(err) {
+      form.submit();
+    }
+  });
+})();
     </script>`;
   return shell('提交作品', content);
 }
