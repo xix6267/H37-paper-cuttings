@@ -327,7 +327,7 @@ function buildSubmit(courses) {
       <form class="submit-form" id="submitForm"
         action="https://api.web3forms.com/submit"
         method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="access_key" value="f49b2066-1d27-4619-a1a8-dafabbcfb891">
         <input type="hidden" name="subject" value="新作品提交 - 剪纸小家">
         <input type="hidden" name="from_name" value="剪纸小家网站">
         <input type="checkbox" name="botcheck" style="display:none">
