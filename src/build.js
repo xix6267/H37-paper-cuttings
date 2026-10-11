@@ -326,7 +326,7 @@ function buildSubmit(courses) {
     <div class="container submit-body">
       <form class="submit-form" id="submitForm"
         action="https://api.web3forms.com/submit"
-        method="POST" enctype="multipart/form-data">
+        method="POST">
         <input type="hidden" name="access_key" value="f49b2066-1d27-4619-a1a8-dafabbcfb891">
         <input type="hidden" name="subject" value="新作品提交 - 剪纸小家">
         <input type="hidden" name="from_name" value="剪纸小家网站">
@@ -352,9 +352,9 @@ function buildSubmit(courses) {
         </div>
 
         <div class="form-group">
-          <label for="photo">作品照片</label>
-          <input type="file" id="photo" name="attachment" accept="image/*">
-          <p class="form-hint">上传一张清晰的作品照片（手机拍照即可）</p>
+          <label for="photo">作品照片（选填）</label>
+          <input type="text" id="photo" name="photo_url" placeholder="把照片发到微信群后，长按图片复制链接粘贴到这里">
+          <p class="form-hint">也可以不填，直接把照片发给老师</p>
         </div>
 
         <div class="form-group">
