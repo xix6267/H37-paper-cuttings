@@ -312,81 +312,76 @@ function buildAbout() {
 }
 
 function buildSubmit(courses) {
-  const courseOptions = courses.map(c =>
-    `<option value="${escapeHtml(c.title)}">${escapeHtml(c.title)}</option>`
-  ).join('\n');
-
   const content = `
     <div class="submit-hero">
       <div class="container">
         <h1>提交课堂照片</h1>
-        <p class="submit-sub">填写下面的表单，分享你的课堂照片和感受</p>
+        <p class="submit-sub">点击下方按钮，填写问卷上传你的课堂照片和感受</p>
       </div>
     </div>
     <div class="container submit-body">
-      <form class="submit-form" id="submitForm"
-        action="https://formsubmit.co/2187416071@qq.com"
-        method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="新课堂照片上传 - 剪纸小家">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" value="收到！感谢你的分享，老师会尽快审核并上线你的课堂照片。">
-        <input type="hidden" name="_next" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
-
-        <div class="form-group">
-          <label for="name">你的名字 <span class="req">*</span></label>
-          <input type="text" id="name" name="姓名" required placeholder="昵称、小名都可以">
+      <div class="submit-redirect">
+        <div class="redirect-card">
+          <div class="redirect-icon">📷</div>
+          <h2>上传课堂照片</h2>
+          <p>点击下面的按钮，在新窗口中填写问卷，上传你的课堂照片和感受。</p>
+          <a href="https://wj.qq.com/s2/28228962/zo37/" target="_blank" class="btn-submit btn-redirect">
+            打开上传问卷
+          </a>
+          <p class="redirect-hint">问卷将在新窗口中打开，填写完成后自动返回本站</p>
         </div>
-
-        <div class="form-group">
-          <label for="course">哪一节课 <span class="req">*</span></label>
-          <select id="course" name="课程" required>
-            <option value="" disabled selected>请选择课程</option>
-            ${courseOptions}
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="thought">你的感受 <span class="req">*</span></label>
-          <textarea id="thought" name="感受" rows="5" required
-            placeholder="拍这张照片时的心情，或者想说的话..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="photo">课堂照片（选填）</label>
-          <input type="file" id="photo" name="attachment" accept="image/*">
-          <p class="form-hint">作品照片或上课过程照片都可以，手机拍照即可</p>
-        </div>
-
-        <div class="form-group">
-          <label for="contact">联系方式（选填）</label>
-          <input type="text" id="contact" name="联系方式" placeholder="手机号或微信号，方便老师联系你">
-        </div>
-
-        <button type="submit" class="btn-submit btn-form">上传照片</button>
-      </form>
-
-      <div class="form-success" id="formSuccess" style="display:none">
-        <div class="success-icon">✓</div>
-        <h2>上传成功！</h2>
-        <p>感谢你的分享，老师收到后会审核并上线你的作品。</p>
-        <a href="index.html" class="btn-submit">返回首页</a>
       </div>
     </div>
 
-    <script>
-(function(){
-  if (location.search.indexOf('success=1') > -1) {
-    document.getElementById('submitForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    history.replaceState(null, '', 'submit.html');
-  }
-  document.getElementById('submitForm').addEventListener('submit', function(e) {
-    var btn = this.querySelector('.btn-form');
-    btn.textContent = '上传中...';
-    btn.disabled = true;
-  });
-})();
-    </script>`;
+    <style>
+      .submit-redirect {
+        max-width: 600px;
+        margin: 2rem auto;
+        text-align: center;
+      }
+      .redirect-card {
+        background: white;
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      }
+      .redirect-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+      }
+      .redirect-card h2 {
+        color: #C41E24;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+      .redirect-card p {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .btn-redirect {
+        display: inline-block;
+        background: #C41E24;
+        color: white;
+        padding: 1rem 3rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        margin-bottom: 1rem;
+      }
+      .btn-redirect:hover {
+        background: #a3181d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(196, 30, 36, 0.3);
+      }
+      .redirect-hint {
+        font-size: 0.9rem;
+        color: #999;
+        margin-top: 1rem;
+      }
+    </style>`;
   return shell('上传照片', content);
 }
 
