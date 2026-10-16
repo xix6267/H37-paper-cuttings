@@ -319,7 +319,7 @@ function buildSubmit(courses) {
   const content = `
     <div class="submit-hero">
       <div class="container">
-        <h1>上传课堂照片</h1>
+        <h1>提交课堂照片</h1>
         <p class="submit-sub">填写下面的表单，分享你的课堂照片和感受</p>
       </div>
     </div>
@@ -348,7 +348,7 @@ function buildSubmit(courses) {
         <div class="form-group">
           <label for="thought">你的感受 <span class="req">*</span></label>
           <textarea id="thought" name="感受" rows="5" required
-            placeholder="剪这件作品时的心情、遇到的困难，或者想说的话..."></textarea>
+            placeholder="拍这张照片时的心情，或者想说的话..."></textarea>
         </div>
 
         <div class="form-group">
