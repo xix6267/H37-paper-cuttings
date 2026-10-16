@@ -113,7 +113,7 @@ function buildIndex(courses) {
         <p class="card-date">${escapeHtml(c.date)}</p>
         <p class="card-desc">${escapeHtml(c.description)}</p>
         <div class="card-meta">
-          <span>${c.workCount} 件学员作品</span>
+          <span>${c.workCount} 张上课实录</span>
           <span class="arrow">→</span>
         </div>
       </div>
@@ -195,10 +195,10 @@ function buildCoursePage(course, courses) {
         <div class="steps">${steps}</div>
       </section>
       <section class="works-section">
-        <h2 class="section-title">学员作品 <span class="work-count">(${course.workCount}件)</span></h2>
+        <h2 class="section-title">上课实录 <span class="work-count">(${course.workCount}张)</span></h2>
         ${course.workCount > 0
           ? `<div class="work-grid">${works}</div>`
-          : `<p class="empty-hint">还没有学员作品，快来提交你的第一件作品吧！</p>`}
+          : `<p class="empty-hint">还没有上课实录照片，快来上传吧！</p>`}
         <div class="submit-cta">
           <a href="../submit.html" class="btn-submit">提交我的作品</a>
         </div>
@@ -249,7 +249,7 @@ function buildAbout() {
         <div class="about-features">
           <div class="feature"><div class="feature-icon">🎨</div><h3>样图</h3><p>这节课要剪成什么样</p></div>
           <div class="feature"><div class="feature-icon">📖</div><h3>教程</h3><p>一步一步，怎么剪出来</p></div>
-          <div class="feature"><div class="feature-icon">✨</div><h3>作品与感受</h3><p>学员亲手剪出的成果和心里话</p></div>
+          <div class="feature"><div class="feature-icon">✨</div><h3>上课实录</h3><p>课堂上的作品与精彩瞬间</p></div>
         </div>
         <p>它不是一个大而全的社区广场，而是一间<strong>安静的小家</strong>——内容经过用心整理，作品被认真对待。</p>
       </section>
@@ -260,12 +260,12 @@ function buildAbout() {
           <div class="about-step"><div class="step-circle">1</div><p>打开网站，点「提交我的作品」</p></div>
           <div class="about-step"><div class="step-circle">2</div><p>填写提交表单（姓名 / 哪一节课 / 你的感受 / 上传照片）</p></div>
           <div class="about-step"><div class="step-circle">3</div><p>老师收到后审核，确认内容合适</p></div>
-          <div class="about-step"><div class="step-circle">4</div><p>作品正式上线，出现在对应课程的学员作品里</p></div>
+          <div class="about-step"><div class="step-circle">4</div><p>上课实录正式上线，出现在对应课程的上课实录里</p></div>
         </div>
         <h3>提交需要准备什么</h3>
         <ul>
           <li><strong>你的名字</strong>：想让大家看到的名字，昵称、小名都可以</li>
-          <li><strong>作品照片</strong>：一张清晰的正面照片，光线充足即可（手机拍就行）</li>
+          <li><strong>课堂照片</strong>：作品照片或上课过程照片，一张清晰的正面照片，光线充足即可（手机拍就行）</li>
           <li><strong>你的感受</strong>：剪这件作品时的心情、遇到的困难，或者想说的话</li>
         </ul>
       </section>
@@ -292,7 +292,7 @@ function buildAbout() {
           <div class="boundary-col can">
             <h3>做得到的</h3>
             <ul>
-              <li>展示课程、教程、学员作品与感受</li>
+              <li>展示课程、教程、上课实录照片</li>
               <li>大家提交作品，老师审核后上线</li>
               <li>完全免费，长期稳定</li>
             </ul>
@@ -352,9 +352,9 @@ function buildSubmit(courses) {
         </div>
 
         <div class="form-group">
-          <label for="photo">作品照片（选填）</label>
+          <label for="photo">课堂照片（选填）</label>
           <input type="file" id="photo" name="attachment" accept="image/*">
-          <p class="form-hint">从手机相册选择一张作品照片即可</p>
+          <p class="form-hint">作品照片或上课过程照片都可以，手机拍照即可</p>
         </div>
 
         <div class="form-group">
@@ -380,28 +380,10 @@ function buildSubmit(courses) {
     document.getElementById('formSuccess').style.display = 'block';
     history.replaceState(null, '', 'submit.html');
   }
-  document.getElementById('submitForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var form = this;
-    var btn = form.querySelector('.btn-form');
-    var origText = btn.textContent;
+  document.getElementById('submitForm').addEventListener('submit', function(e) {
+    var btn = this.querySelector('.btn-form');
     btn.textContent = '提交中...';
     btn.disabled = true;
-    try {
-      var data = new FormData(form);
-      var res = await fetch('https://formsubmit.co/ajax/2187416071@qq.com', { method: 'POST', body: data });
-      var result = await res.json();
-      if (result.success) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      } else {
-        alert('提交失败：' + (result.message || '未知错误') + '\n请稍后再试或联系老师。');
-        btn.textContent = origText;
-        btn.disabled = false;
-      }
-    } catch(err) {
-      form.submit();
-    }
   });
 })();
     </script>`;
