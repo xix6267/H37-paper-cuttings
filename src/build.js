@@ -329,7 +329,7 @@ function buildSubmit(courses) {
         method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="新课堂照片上传 - 剪纸小家">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="收到！感谢你的分享，老师会尽快审核并上线你的课堂照片。">
         <input type="hidden" name="_next" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
 
         <div class="form-group">
