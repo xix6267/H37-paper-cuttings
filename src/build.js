@@ -84,7 +84,7 @@ function shell(title, content, extraHead = '', prefix = '') {
       </a>
       <nav>
         <a href="${prefix}index.html" class="nav-link">首页</a>
-        <a href="${prefix}submit.html" class="nav-link">提交作品</a>
+        <a href="${prefix}submit.html" class="nav-link">上传照片</a>
         <a href="${prefix}about.html" class="nav-link">关于</a>
       </nav>
     </div>
@@ -200,7 +200,7 @@ function buildCoursePage(course, courses) {
           ? `<div class="work-grid">${works}</div>`
           : `<p class="empty-hint">还没有上课实录照片，快来上传吧！</p>`}
         <div class="submit-cta">
-          <a href="../submit.html" class="btn-submit">提交我的作品</a>
+          <a href="../submit.html" class="btn-submit">上传课堂照片</a>
         </div>
       </section>
       ${otherCourses ? `<section class="other-section"><h2 class="section-title">其他课程</h2><div class="other-links">${otherCourses}</div></section>` : ''}
@@ -255,14 +255,14 @@ function buildAbout() {
       </section>
       <section class="about-section">
         <h2>怎么参与</h2>
-        <p>每个人都可以提交自己的作品和感受。流程很简单：</p>
+        <p>每个人都可以上传课堂照片和感受。流程很简单：</p>
         <div class="about-steps">
-          <div class="about-step"><div class="step-circle">1</div><p>打开网站，点「提交我的作品」</p></div>
-          <div class="about-step"><div class="step-circle">2</div><p>填写提交表单（姓名 / 哪一节课 / 你的感受 / 上传照片）</p></div>
+          <div class="about-step"><div class="step-circle">1</div><p>打开网站，点「上传照片」</p></div>
+          <div class="about-step"><div class="step-circle">2</div><p>填写表单（姓名 / 哪一节课 / 你的感受 / 上传照片）</p></div>
           <div class="about-step"><div class="step-circle">3</div><p>老师收到后审核，确认内容合适</p></div>
           <div class="about-step"><div class="step-circle">4</div><p>上课实录正式上线，出现在对应课程的上课实录里</p></div>
         </div>
-        <h3>提交需要准备什么</h3>
+        <h3>上传需要准备什么</h3>
         <ul>
           <li><strong>你的名字</strong>：想让大家看到的名字，昵称、小名都可以</li>
           <li><strong>课堂照片</strong>：作品照片或上课过程照片，一张清晰的正面照片，光线充足即可（手机拍就行）</li>
@@ -282,7 +282,7 @@ function buildAbout() {
           <div class="tech-row"><span class="tech-label">托管</span><span>GitHub Pages（免费、免备案）</span></div>
           <div class="tech-row"><span class="tech-label">费用</span><span><strong>0 元</strong></span></div>
           <div class="tech-row"><span class="tech-label">更新方式</span><span>提交内容文件后自动重建上线</span></div>
-          <div class="tech-row"><span class="tech-label">提交入口</span><span>网站在线表单（直接提交，无需注册）</span></div>
+          <div class="tech-row"><span class="tech-label">上传入口</span><span>网站在线表单（直接上传，无需注册）</span></div>
         </div>
         <p>网站本身只是一堆文件，没有服务器、没有数据库、没有按量计费服务，因此不存在"用超了要收费"或"不活动被暂停"的问题。</p>
       </section>
@@ -293,7 +293,7 @@ function buildAbout() {
             <h3>做得到的</h3>
             <ul>
               <li>展示课程、教程、上课实录照片</li>
-              <li>大家提交作品，老师审核后上线</li>
+              <li>大家上传照片，老师审核后上线</li>
               <li>完全免费，长期稳定</li>
             </ul>
           </div>
@@ -319,15 +319,15 @@ function buildSubmit(courses) {
   const content = `
     <div class="submit-hero">
       <div class="container">
-        <h1>提交我的作品</h1>
-        <p class="submit-sub">填写下面的表单，分享你的剪纸作品和感受</p>
+        <h1>上传课堂照片</h1>
+        <p class="submit-sub">填写下面的表单，分享你的课堂照片和感受</p>
       </div>
     </div>
     <div class="container submit-body">
       <form class="submit-form" id="submitForm"
         action="https://formsubmit.co/2187416071@qq.com"
         method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="新作品提交 - 剪纸小家">
+        <input type="hidden" name="_subject" value="新课堂照片上传 - 剪纸小家">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
@@ -362,12 +362,12 @@ function buildSubmit(courses) {
           <input type="text" id="contact" name="联系方式" placeholder="手机号或微信号，方便老师联系你">
         </div>
 
-        <button type="submit" class="btn-submit btn-form">提交作品</button>
+        <button type="submit" class="btn-submit btn-form">上传照片</button>
       </form>
 
       <div class="form-success" id="formSuccess" style="display:none">
         <div class="success-icon">✓</div>
-        <h2>提交成功！</h2>
+        <h2>上传成功！</h2>
         <p>感谢你的分享，老师收到后会审核并上线你的作品。</p>
         <a href="index.html" class="btn-submit">返回首页</a>
       </div>
@@ -382,12 +382,12 @@ function buildSubmit(courses) {
   }
   document.getElementById('submitForm').addEventListener('submit', function(e) {
     var btn = this.querySelector('.btn-form');
-    btn.textContent = '提交中...';
+    btn.textContent = '上传中...';
     btn.disabled = true;
   });
 })();
     </script>`;
-  return shell('提交作品', content);
+  return shell('上传照片', content);
 }
 
 async function main() {
