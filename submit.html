@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上传照片 - 剪纸小家</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✂</span>
+        <span class="logo-text">剪纸小家</span>
+      </a>
+      <nav>
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="submit.html" class="nav-link">上传照片</a>
+        <a href="about.html" class="nav-link">关于</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="submit-hero">
+      <div class="container">
+        <h1>提交课堂照片</h1>
+        <p class="submit-sub">填写下面的表单，分享你的课堂照片和感受</p>
+      </div>
+    </div>
+    <div class="container submit-body">
+      <form class="submit-form" id="submitForm"
+        action="https://formsubmit.co/2187416071@qq.com"
+        method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="新课堂照片上传 - 剪纸小家">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://xix6267.github.io/H37-paper-cuttings/submit.html?success=1">
+
+        <div class="form-group">
+          <label for="name">你的名字 <span class="req">*</span></label>
+          <input type="text" id="name" name="姓名" required placeholder="昵称、小名都可以">
+        </div>
+
+        <div class="form-group">
+          <label for="course">哪一节课 <span class="req">*</span></label>
+          <select id="course" name="课程" required>
+            <option value="" disabled selected>请选择课程</option>
+            <option value="课时1：辨识流派 · 海派文脉">课时1：辨识流派 · 海派文脉</option>
+<option value="课时2：剪刀折叠 · 对称生花">课时2：剪刀折叠 · 对称生花</option>
+<option value="课时3：AI转纹 · 徐汇入画">课时3：AI转纹 · 徐汇入画</option>
+<option value="课时4：刻刀精雕 · 匠心成画">课时4：刻刀精雕 · 匠心成画</option>
+<option value="课时5：热缩剪形 · 饰美生活">课时5：热缩剪形 · 饰美生活</option>
+<option value="课时6：热缩组装 · 日用成饰">课时6：热缩组装 · 日用成饰</option>
+<option value="课时7：转印布袋 · 徐汇记忆">课时7：转印布袋 · 徐汇记忆</option>
+<option value="课时8：剪刻花灯 · 家国团圆">课时8：剪刻花灯 · 家国团圆</option>
+<option value="课时9：组装花灯 · 点亮社区">课时9：组装花灯 · 点亮社区</option>
+<option value="课时10：生肖拼贴 · 祝福长卷">课时10：生肖拼贴 · 祝福长卷</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="thought">你的感受 <span class="req">*</span></label>
+          <textarea id="thought" name="感受" rows="5" required
+            placeholder="拍这张照片时的心情，或者想说的话..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">课堂照片（选填）</label>
+          <input type="file" id="photo" name="attachment" accept="image/*">
+          <p class="form-hint">作品照片或上课过程照片都可以，手机拍照即可</p>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">联系方式（选填）</label>
+          <input type="text" id="contact" name="联系方式" placeholder="手机号或微信号，方便老师联系你">
+        </div>
+
+        <button type="submit" class="btn-submit btn-form">上传照片</button>
+      </form>
+
+      <div class="form-success" id="formSuccess" style="display:none">
+        <div class="success-icon">✓</div>
+        <h2>上传成功！</h2>
+        <p>感谢你的分享，老师收到后会审核并上线你的作品。</p>
+        <a href="index.html" class="btn-submit">返回首页</a>
+      </div>
+    </div>
+
+    <script>
+(function(){
+  if (location.search.indexOf('success=1') > -1) {
+    document.getElementById('submitForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    history.replaceState(null, '', 'submit.html');
+  }
+  document.getElementById('submitForm').addEventListener('submit', function(e) {
+    var btn = this.querySelector('.btn-form');
+    btn.textContent = '上传中...';
+    btn.disabled = true;
+  });
+})();
+    </script></main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>剪纸小家 · 剪出属于我们的故事</p>
+      <p class="footer-sub">上海市社区创课大赛项目</p>
+    </div>
+  </footer>
+</body>
+</html>

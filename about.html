@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我们 - 剪纸小家</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✂</span>
+        <span class="logo-text">剪纸小家</span>
+      </a>
+      <nav>
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="submit.html" class="nav-link">上传照片</a>
+        <a href="about.html" class="nav-link">关于</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="about-hero">
+      <div class="container">
+        <h1>关于剪纸小家</h1>
+        <p class="about-sub">以剪纸为主题的社区空间，一个安静的作品小家</p>
+      </div>
+    </div>
+    <div class="container about-body">
+      <section class="about-section">
+        <h2>我们是什么</h2>
+        <p>剪纸小家是一个围绕剪纸课程的社区空间。</p>
+        <p>在这里，每一节课都会留下三样东西：</p>
+        <div class="about-features">
+          <div class="feature"><div class="feature-icon">🎨</div><h3>样图</h3><p>这节课要剪成什么样</p></div>
+          <div class="feature"><div class="feature-icon">📖</div><h3>教程</h3><p>一步一步，怎么剪出来</p></div>
+          <div class="feature"><div class="feature-icon">✨</div><h3>上课实录</h3><p>课堂上的作品与精彩瞬间</p></div>
+        </div>
+        <p>它不是一个大而全的社区广场，而是一间<strong>安静的小家</strong>——内容经过用心整理，作品被认真对待。</p>
+      </section>
+      <section class="about-section">
+        <h2>怎么参与</h2>
+        <p>每个人都可以上传课堂照片和感受。流程很简单：</p>
+        <div class="about-steps">
+          <div class="about-step"><div class="step-circle">1</div><p>打开网站，点「上传照片」</p></div>
+          <div class="about-step"><div class="step-circle">2</div><p>填写表单（姓名 / 哪一节课 / 你的感受 / 上传照片）</p></div>
+          <div class="about-step"><div class="step-circle">3</div><p>老师收到后审核，确认内容合适</p></div>
+          <div class="about-step"><div class="step-circle">4</div><p>上课实录正式上线，出现在对应课程的上课实录里</p></div>
+        </div>
+        <h3>上传需要准备什么</h3>
+        <ul>
+          <li><strong>你的名字</strong>：想让大家看到的名字，昵称、小名都可以</li>
+          <li><strong>课堂照片</strong>：作品照片或上课过程照片，一张清晰的正面照片，光线充足即可（手机拍就行）</li>
+          <li><strong>你的感受</strong>：剪这件作品时的心情、遇到的困难，或者想说的话</li>
+        </ul>
+      </section>
+      <section class="about-section">
+        <h2>内容维护</h2>
+        <p>所有上线内容都由管理者统一整理，保证质量与秩序。</p>
+        <p>维护流程：收集 → 审核 → 整理 → 上线</p>
+        <p>更新一节课的内容，只需在对应课程文件夹里放入作品照片，在 info.json 中补充作者名字和感受，提交更新后网站自动上线。</p>
+      </section>
+      <section class="about-section">
+        <h2>技术与成本</h2>
+        <div class="tech-table">
+          <div class="tech-row"><span class="tech-label">网站形态</span><span>纯静态网站（照片和文字都是文件，无需数据库）</span></div>
+          <div class="tech-row"><span class="tech-label">托管</span><span>GitHub Pages（免费、免备案）</span></div>
+          <div class="tech-row"><span class="tech-label">费用</span><span><strong>0 元</strong></span></div>
+          <div class="tech-row"><span class="tech-label">更新方式</span><span>提交内容文件后自动重建上线</span></div>
+          <div class="tech-row"><span class="tech-label">上传入口</span><span>网站在线表单（直接上传，无需注册）</span></div>
+        </div>
+        <p>网站本身只是一堆文件，没有服务器、没有数据库、没有按量计费服务，因此不存在"用超了要收费"或"不活动被暂停"的问题。</p>
+      </section>
+      <section class="about-section about-boundary">
+        <h2>这个项目的边界</h2>
+        <div class="boundary-grid">
+          <div class="boundary-col can">
+            <h3>做得到的</h3>
+            <ul>
+              <li>展示课程、教程、上课实录照片</li>
+              <li>大家上传照片，老师审核后上线</li>
+              <li>完全免费，长期稳定</li>
+            </ul>
+          </div>
+          <div class="boundary-col cant">
+            <h3>有意不做的</h3>
+            <ul>
+              <li>不开放"上传即显示"：所有内容都要经过审核</li>
+              <li>不做公开评论区：保持安静</li>
+              <li>不追求大而全：专注剪纸这一件事</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div></main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>剪纸小家 · 剪出属于我们的故事</p>
+      <p class="footer-sub">上海市社区创课大赛项目</p>
+    </div>
+  </footer>
+</body>
+</html>

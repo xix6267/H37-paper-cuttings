@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>课时6：热缩组装 · 日用成饰 - 剪纸小家</title>
+  <link rel="stylesheet" href="../style.css">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✂</span>
+        <span class="logo-text">剪纸小家</span>
+      </a>
+      <nav>
+        <a href="../index.html" class="nav-link">首页</a>
+        <a href="../submit.html" class="nav-link">上传照片</a>
+        <a href="../about.html" class="nav-link">关于</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="course-header">
+      <div class="container">
+        <a href="../index.html" class="back-link">← 返回课程列表</a>
+        <h1>课时6：热缩组装 · 日用成饰</h1>
+        <p class="course-date">2026-10-20</p>
+        <p class="course-desc">完成热缩片半成品修边打孔，学习圆嘴钳尖嘴钳双钳组装开口圈的标准流程，做成完整剪纸风格耳环。</p>
+      </div>
+    </div>
+    <div class="container course-body">
+      <section class="cover-section">
+        <h2 class="section-title">课程样图</h2>
+        <div class="cover-large"><img src="../content/courses/06-earring-assembly/cover.jpg" alt="课时6：热缩组装 · 日用成饰"></div>
+      </section>
+      <section class="tutorial-section">
+        <h2 class="section-title">教程步骤</h2>
+        <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">修边要点：修剪毛边多余凸起，薄热缩片轻剪防止断裂</div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">打孔标准：孔距离边缘≥2mm，防止加热撕裂</div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">开圈口诀：双钳平移开圈口，不上下掰（会永久变形）</div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">组装顺序：开口圈依次穿过耳钩挂环→热缩片孔洞，多层吊坠穿链条</div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">闭合检查：反向用力压紧，缝隙完全贴合无晃动，轻拉不掉落</div>
+      </div></div>
+      </section>
+      <section class="works-section">
+        <h2 class="section-title">上课实录 <span class="work-count">(0张)</span></h2>
+        <p class="empty-hint">还没有上课实录照片，快来上传吧！</p>
+        <div class="submit-cta">
+          <a href="../submit.html" class="btn-submit">上传课堂照片</a>
+        </div>
+      </section>
+      <section class="other-section"><h2 class="section-title">其他课程</h2><div class="other-links"><a href="../01-intro/index.html" class="other-link">课时1：辨识流派 · 海派文脉 →</a><a href="../02-symmetric/index.html" class="other-link">课时2：剪刀折叠 · 对称生花 →</a><a href="../03-ai-prompt/index.html" class="other-link">课时3：AI转纹 · 徐汇入画 →</a><a href="../04-carving/index.html" class="other-link">课时4：刻刀精雕 · 匠心成画 →</a><a href="../05-shrink-film/index.html" class="other-link">课时5：热缩剪形 · 饰美生活 →</a><a href="../07-heat-transfer/index.html" class="other-link">课时7：转印布袋 · 徐汇记忆 →</a><a href="../08-lantern/index.html" class="other-link">课时8：剪刻花灯 · 家国团圆 →</a><a href="../09-lantern-finish/index.html" class="other-link">课时9：组装花灯 · 点亮社区 →</a><a href="../10-zodiac/index.html" class="other-link">课时10：生肖拼贴 · 祝福长卷 →</a></div></section>
+    </div>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lb-close" onclick="closeLightbox()">×</button>
+      <div class="lb-content" onclick="event.stopPropagation()">
+        <img id="lb-img" src="" alt="">
+        <div class="lb-info">
+          <p id="lb-name"></p>
+          <p id="lb-thought"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+function openLightbox(src,name,thought){
+  var lb=document.getElementById('lightbox');
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-name').textContent=name+' 的作品';
+  document.getElementById('lb-thought').textContent='"'+thought+'"';
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+    </script></main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>剪纸小家 · 剪出属于我们的故事</p>
+      <p class="footer-sub">上海市社区创课大赛项目</p>
+    </div>
+  </footer>
+</body>
+</html>
