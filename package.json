@@ -1,0 +1,10 @@
+{
+  "name": "jianzhi-xiaojia",
+  "version": "1.0.0",
+  "description": "剪纸小家 - 以剪纸为主题的社区创课空间",
+  "scripts": {
+    "build": "node src/build.js",
+    "dev": "node src/build.js && npx serve dist"
+  },
+  "type": "module"
+}

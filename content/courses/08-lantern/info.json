@@ -1,0 +1,28 @@
+{
+  "title": "课时8：剪刻花灯 · 家国团圆",
+  "date": "2026-11-03",
+  "description": "综合复习剪刀刻刀技法，完成中秋花灯剪纸灯面半成品，感受剪纸镂空透光的核心特点，传递团圆和谐文化内涵。",
+  "tutorial": [
+    "用纸选择：白色灯面宣纸，底稿主题为祥云、玉兔等中秋纹样",
+    "硬性要求：四边预留2cm粘贴边用于拼接骨架",
+    "镂空注意：纹样不能过细，防止组装时撕裂",
+    "对称花灯：左右两半分开裁剪，保证构图均衡",
+    "失误补救：灯面撕裂用窄宣纸纸条背面粘贴加固"
+  ],
+  "works": [
+    { "name": "老师", "thought": "讲解花灯文化与灯面纹样剪刻技法", "image": "works/IMG_7096.JPG", "category": "teacher" },
+    { "name": "老师", "thought": "展示中秋节文化视频", "image": "works/IMG_7099.JPG", "category": "teacher" },
+    { "name": "老师", "thought": "介绍中秋节文化意象", "image": "works/IMG_7103.JPG", "category": "teacher" },
+    { "name": "老师", "thought": "介绍中秋主题纹样寓意", "image": "works/IMG_7105.JPG", "category": "teacher" },
+    { "name": "老师", "thought": "指导学生实际操作", "image": "works/IMG_7116.JPG", "category": "teacher" },
+    { "name": "学员", "thought": "认真听讲", "image": "works/IMG_7107.JPG", "category": "student" },
+    { "name": "学员", "thought": "认真听讲", "image": "works/IMG_7108.JPG", "category": "student" },
+    { "name": "学员", "thought": "专注地剪纸", "image": "works/IMG_7122.JPG", "category": "student" },
+    { "name": "学员", "thought": "使用刻刀", "image": "works/IMG_7124.JPG", "category": "student" },
+    { "name": "学员", "thought": "完成灯面剪刻作品", "image": "works/IMG_7137.JPG", "category": "student" },
+    { "name": "学员", "thought": "完成灯面剪刻作品", "image": "works/IMG_7138.JPG", "category": "student" },
+    { "name": "学员", "thought": "完成灯面剪刻作品", "image": "works/IMG_7142.JPG", "category": "student" },
+    { "name": "课堂", "thought": "师生互动交流剪纸技法", "image": "works/IMG_7119.JPG", "category": "interaction" },
+    { "name": "课堂", "thought": "师生互动交流剪纸技法", "image": "works/IMG_7127.JPG", "category": "interaction" }
+  ]
+}

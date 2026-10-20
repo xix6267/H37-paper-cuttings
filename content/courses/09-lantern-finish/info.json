@@ -1,0 +1,29 @@
+{
+  "title": "课时9：组装花灯 · 点亮社区",
+  "date": "2026-11-10",
+  "description": "把课时8的灯面半成品组装成完整剪纸花灯，安装骨架、提手、LED灯与流苏，展示作品交流创作心得。",
+  "tutorial": [
+    "组装顺序：先修整灯面清理纸屑，再粘贴边涂胶贴合骨架，确保对称稳固",
+    "安装装饰：提手、LED灯与流苏，完成兼具非遗韵味与节日气息的花灯",
+    "失误补救：灯面撕裂用宣纸小条背面加固，骨架错位及时调整重贴",
+    "作品展示：交流创作心得，传递团圆和谐的中秋文化内涵",
+    "工具安全：粘贴边少量涂胶避免浸透纹样，锋利工具规范使用"
+  ],
+  "works": [
+    { "name": "老师", "thought": "指导学员完成花灯最后组装", "image": "works/26ca9315394ad2f531b2d7d34e0ef2a3.jpg", "category": "teacher" },
+    { "name": "学员", "thought": "大功告成", "image": "works/08cb70163bcc51dce42ba52bdbebaaeb.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/9a2b8efde559030e473cebda2a42f351.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/22683fc4a5d93c60c07c1bae4ef07a2b.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/9d0630b1df02e348b1996ca55e4b6127.jpg", "category": "student" },
+    { "name": "学员", "thought": "组装进行中", "image": "works/4c6de3237514ad642470cd494b4103cd.jpg", "category": "student" },
+    { "name": "学员", "thought": "组装进行中", "image": "works/IMG_20260923_154211.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/IMG_20260923_154403.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/d7ee8081c0e65d9d8f2ea3c2973c62a1.jpg", "category": "student" },
+    { "name": "学员", "thought": "大功告成", "image": "works/e7e6cf57063ce5e128482ad0067af490.jpg", "category": "student" },
+    { "name": "课堂", "thought": "老师课后采访", "image": "works/14b43186dbe4011ec8e5570882200bb0.jpg", "category": "interaction" },
+    { "name": "课堂", "thought": "老师学员交流组装方法", "image": "works/6d16393fd5f91661f22d77a81b211867.jpg", "category": "interaction" },
+    { "name": "课堂", "thought": "老师听取学员分享", "image": "works/e40ae05324e720da9d8f91dc1e46807b.jpg", "category": "interaction" },
+    { "name": "课堂", "thought": "老师学员合影", "image": "works/thumbs-up.png", "category": "interaction" },
+    { "name": "学员", "thought": "大功告成", "image": "works/fa0f343bd68c93aabbe256bc0cebe276.jpg", "category": "student" }
+  ]
+}
